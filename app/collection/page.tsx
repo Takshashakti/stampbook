@@ -22,13 +22,13 @@ import { Label } from "@/components/ui/label";
 import { Search, Plus } from "lucide-react";
 
 const userStamps = [
-  { id: 1, name: "1840 Penny Black", year: 1840, image: "/placeholder.svg" },
-  { id: 2, name: "1918 Inverted Jenny", year: 1918, image: "/placeholder.svg" },
+  { id: 1, name: "1840 Penny Black", year: 1840, image: "/1840-penny-black-stamp.jpg" },
+  { id: 2, name: "1918 Inverted Jenny", year: 1918, image: "/British_Guiana.jpg" },
   {
     id: 3,
     name: "1856 British Guiana 1c Magenta",
     year: 1856,
-    image: "/placeholder.svg",
+    image: "/US_Airmail_inverted_Jenny_24c_1918_issue.jpg",
   },
   // Add more stamps as needed
 ];

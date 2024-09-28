@@ -12,11 +12,23 @@ export default function ProfilePage() {
   const [user, setUser] = useState({
     name: "John Doe",
     email: "john@example.com",
-    avatar: "/placeholder-user.jpg",
+    avatar: "/avatar.jpg",
     bio: "Passionate stamp collector with a focus on 19th century European stamps.",
-    collectionCount: 152,
+    collectionCount: 3,
     marketListings: 3,
   });
+
+  const userStamps = [
+    { id: 1, name: "1840 Penny Black", year: 1840, image: "/1840-penny-black-stamp.jpg" },
+    { id: 2, name: "1918 Inverted Jenny", year: 1918, image: "/British_Guiana.jpg" },
+    {
+      id: 3,
+      name: "1856 British Guiana 1c Magenta",
+      year: 1856,
+      image: "/US_Airmail_inverted_Jenny_24c_1918_issue.jpg",
+    },
+    // Add more stamps as needed
+  ];
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -93,11 +105,49 @@ export default function ProfilePage() {
             </TabsList>
             <TabsContent value="collection">
               <p>You have {user.collectionCount} stamps in your collection.</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {userStamps.map((stamp) => (
+          <Card key={stamp.id} className="flex flex-col">
+            <CardHeader>
+              <CardTitle className="truncate">{stamp.name}</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-grow">
+              <div className="aspect-square w-full relative mb-4">
+                <img
+                  src={stamp.image}
+                  alt={stamp.name}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+              <p className="text-lg">Year: {stamp.year}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
             </TabsContent>
             <TabsContent value="marketplace">
               <p>
                 You have {user.marketListings} active listings in the
                 marketplace.
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {userStamps.map((stamp) => (
+          <Card key={stamp.id} className="flex flex-col">
+            <CardHeader>
+              <CardTitle className="truncate">{stamp.name}</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-grow">
+              <div className="aspect-square w-full relative mb-4">
+                <img
+                  src={stamp.image}
+                  alt={stamp.name}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+              <p className="text-lg">Year: {stamp.year}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
               </p>
             </TabsContent>
           </Tabs>

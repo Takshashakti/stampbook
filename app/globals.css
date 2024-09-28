@@ -19,6 +19,9 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 } */
+* {
+  scroll-behavior: smooth;
+}
 
 @layer utilities {
   .text-balance {
@@ -89,4 +92,5 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+ 
 }
